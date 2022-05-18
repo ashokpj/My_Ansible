@@ -1,0 +1,20 @@
+---
+- name : Create a file if doesnot exist
+  hosts : testservers
+  gather_facts: no
+
+  tasks:
+    - name : check file exists
+      shell:
+         cmd : ls /tmp/test2.txt
+      register: check_rc_var
+      ignore_errors: yes
+
+    - name : create file
+      file :
+        path : /tmp/test2.txt
+        state: touch
+      when: check_rc_var.rc != 0
+
+      
+         

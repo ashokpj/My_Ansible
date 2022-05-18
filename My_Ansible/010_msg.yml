@@ -1,0 +1,12 @@
+---
+ - name : "test variable in ansible"
+   hosts: localhost
+   gather_fact: false
+   become : no
+   vars:
+     x = 4
+   tasks:
+    - name : "Varibable print x"
+      debug:
+	    msg: " Value of x is {{ x }}"
+

@@ -1,0 +1,26 @@
+---
+- name: registor stdout_lines
+  hosts: testservers
+  gather_facts: no
+
+  tasks:
+    - name: to check uptime
+      shell:
+        cmd: uptime
+      register: uptime_var
+
+    - name: to check free memory
+      shell:
+        cmd: free -m
+      register: freemem_var
+
+    - name: print the result
+      debug:
+        var: " {{ item }} "
+      with_items:
+        - uptime_var.stdout_lines
+        - freemem_var.stdout_lines
+
+
+
+

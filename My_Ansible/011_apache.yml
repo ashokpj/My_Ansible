@@ -1,0 +1,20 @@
+---
+- name: apache installation
+  hosts: localhost
+  become: yes
+  become_user: root
+  gather_facts: no
+
+  tasks:
+    - name: install apache
+      apt :
+        name : apache2
+        state : latest
+
+
+    - name : service start
+      service:
+        name : apache2
+        state : started
+
+        

@@ -1,0 +1,53 @@
+all:
+  children:
+    aws:
+      hosts:
+        10.165.190.149:
+          ansible_pasword: pdxcboot@123
+          ansible_user: pdxcboot
+    linux:
+      hosts:
+        130.175.85.11:
+          ansible_password: Start123
+          ansible_user: root
+        130.175.85.15:
+          ansible_password: Start123
+          ansible_user: root
+        130.175.85.217:
+          ansible_password: Start123
+          ansible_user: root
+    local:
+      hosts:
+        localhost:
+          ansible_become: 'true'
+          ansible_become_pass: ashok@369
+          ansible_become_user: root
+          ansible_connection: local
+    oracle_linux:
+      hosts:
+        130.175.85.217: {}
+    redhat:
+      children:
+        redhat6:
+          hosts:
+            130.175.85.15: {}
+        redhat7:
+          hosts:
+            130.175.85.11: {}
+    ubuntu:
+      hosts:
+        130.175.85.69:
+          ansible_password: Start123
+          ansible_user: emi
+    ungrouped: {}
+    windows:
+      hosts:
+        52.163.225.214:
+          ansible_connection: winrm
+          ansible_password: ashok@369@369
+          ansible_port: 5986
+          ansible_user: ashok
+          ansible_winrm_kerberos_delegation: 'true'
+          ansible_winrm_scheme: https
+          ansible_winrm_server_cert_validation: ignore
+          ansible_winrm_transport: basic

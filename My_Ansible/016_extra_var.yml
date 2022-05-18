@@ -1,0 +1,13 @@
+---
+- name: To test extra var
+  hosts : testservers
+  gather_facts: no
+  vars:
+    name: welcome Ashok
+  tasks:
+    - name: print value from extra-var else print default value
+      debug :
+        msg:
+          - "Hello {{ name }}"
+
+

@@ -1,0 +1,26 @@
+---
+- name: register playbook
+  hosts : localhost
+  gather_facts: no
+  become : yes
+  become_user : root
+  
+  tasks:
+    - name: registor test
+      shell :
+        cmd : echo 5
+      register: gget
+
+    - name: registor stdout result
+      debug:
+        msg: 
+          - "we got output {{ gget.stdout }}"
+          - "return value is {{ gget.rc }}"
+
+    - name: condition test
+      debug:
+        msg :
+          - "We got value is {{ gget.stdout }}"
+      when : gget.stdout == "5"
+
+

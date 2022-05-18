@@ -1,0 +1,16 @@
+---
+- hosts: "{{ server }}"
+  gather_facts: no
+  vars:
+    arr_var:
+      - var1
+      - var2
+      - var3
+  tasks:
+    - name: print array variables
+      debug:
+        msg: "valie of array: {{ item }}"
+      with_items:
+        - "{{ arr_var }}" 
+
+

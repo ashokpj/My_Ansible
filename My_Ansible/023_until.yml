@@ -1,0 +1,13 @@
+---
+- name: Sample for until
+  hosts: localhost
+  tasks:
+    - name : until 
+      shell :
+        cmd: ls /home/ashok/ansible | grep "testask"
+      register: result
+      until: result.rc == 0
+      retries : 2
+      delay: 1
+
+        

@@ -1,0 +1,26 @@
+---
+# YAML documents begin with  document ---
+
+- name: Sample paybook 001
+  hosts: local
+  
+  
+  vars:
+      name1: "Ashok"
+      name2: "Senthil"
+      name3: "Udhaya"
+
+  tasks:    
+    - name : print message 
+      debug:
+        msg:
+          - "name1 value is {{ name1 }}"
+          - "name2 value is {{ name2 }}"
+        
+  #handlers: handlers that are executed as a notify key from task
+  
+  #Roles: list of roles to be imported into the play  
+    
+
+# Three dots indicate the end of a YAML documents
+...

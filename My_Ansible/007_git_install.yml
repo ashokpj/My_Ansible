@@ -1,0 +1,18 @@
+---
+- name : Install Yum in local
+  hosts: local
+  become : true
+  gather_facts : no
+
+
+  tasks:
+    - name: install git in local
+      apt:
+        name: git
+        state: latest
+
+
+    - name: get verison of git
+      shell:
+        cmd: git --version
+

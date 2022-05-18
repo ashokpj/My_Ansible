@@ -1,0 +1,14 @@
+---
+- name : To test default variable
+  hosts : testservers
+  gather_facts : no
+
+
+  tasks:
+    - name : print
+      debug:
+        msg:
+          - "Ashok age is {{ age | 40 }}"
+          - "Ashok location at {{ place | mandatory }}"
+
+   

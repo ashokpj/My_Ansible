@@ -1,0 +1,45 @@
+---
+- name : install apache in localhost
+  hosts: localhost
+  gather_facts: yes
+  become: true
+
+  tasks:
+    - name : install apache2 in local host
+      apt:
+        name: apache2
+        state: present
+      notify:
+        - service start
+        - get status
+        - web server status
+    - name: get status
+      command:
+        cmd: service apache2 status
+      register: apache2_status
+      ignore_errors : true
+
+    - name : print
+      debug :
+        msg:
+          - "apache status {{ apache2_status.stdout }}"
+          
+  
+
+  handlers:
+    - name : service start
+      service:
+        name: apache2
+        service: started
+        state: enabled
+
+    - name : get status
+      command: 
+          cmd: service apache2 status
+      register : apache_status
+    
+    - name : web server status
+      debug :
+        var : 
+         - apache_status
+

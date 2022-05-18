@@ -1,0 +1,15 @@
+---
+- name : Touch a file at node
+  hosts : local
+  become : no
+  gather_facts: no
+
+  tasks:
+    - name : Touch a file
+      file :
+        path : /tmp/test.txt
+        state : touch
+        owner :  ashok
+        mode : 0755
+
+

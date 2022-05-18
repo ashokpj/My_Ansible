@@ -1,0 +1,10 @@
+---
+- name :  User create
+  hosts: local
+  become: true
+  tasks:
+    - name : create user ansible_test
+      user :
+        name : ansible_test
+        state: present
+

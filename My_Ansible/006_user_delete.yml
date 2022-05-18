@@ -1,0 +1,13 @@
+---
+- name : Delete user ansible_test in local host
+  hosts: linux
+  become : true
+  gather_facts : false
+
+  tasks:
+   - name: delete user ansible_test
+     user:
+       name: ansible_test
+       state: absent
+
+

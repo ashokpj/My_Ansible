@@ -1,0 +1,14 @@
+---
+- name: Register sample
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: check whoami
+      command:
+        cmd: uptime
+      register: user_name
+
+    - name: print user_name variable
+      debug:
+#        var: user_name.stdout
+        msg: "{{ user_name}}"

@@ -1,0 +1,24 @@
+---
+- name : Sample Tags for Redhat server. yet to test in redhat servers
+  hosts : redhat
+  gather_facts : no
+
+
+  tasks:
+   - name : Nginx install
+     yum :
+      name: nginx
+      state : present
+     tags:
+      - nginx_install
+
+   - name : nginx service start
+     service :
+      name : nginx
+      state : started
+      enabled : yes
+     tags :
+      - nginx_service
+
+
+    

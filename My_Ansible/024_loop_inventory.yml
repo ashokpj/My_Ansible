@@ -1,0 +1,14 @@
+---
+- name : test
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name : print 1
+      debug : 
+         msg : "{{ item }}"
+      with_items : "{{ groups['redhat'] }}"
+    
+    - name : print 2
+      debug :
+         msg : "{{ item }}"
+      with_items : " {{ ansible_play_batch }}"

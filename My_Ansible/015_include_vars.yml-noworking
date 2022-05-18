@@ -1,0 +1,14 @@
+---
+ - name: to test include vars
+   hosts : testservers
+   gather_facts : no
+   include_vars:
+     - value01.yml
+
+   tasks:
+     - include_vars:
+         - value01.yml
+     - name : print value from include var file
+       debug:
+         msg:
+           - "this msg get value from file {{ ashok }}"

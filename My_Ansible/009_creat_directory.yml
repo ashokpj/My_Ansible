@@ -1,0 +1,15 @@
+---
+- name : Create a directory
+  hosts : local
+  become : yes
+  gather_facts: no
+ 
+  tasks:
+    - name : Create a directory at tmp folder
+      file :
+        path: /tmp/test_folder
+        state: directory
+        mode : 0755
+        owner : ashok
+        group : ashok
+

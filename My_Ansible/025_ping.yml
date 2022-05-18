@@ -1,0 +1,9 @@
+- name : ping module
+  hosts: localhost
+  tasks:
+    - name : sample
+      ping :
+      register: hello
+    - debug:
+        var: hello
+

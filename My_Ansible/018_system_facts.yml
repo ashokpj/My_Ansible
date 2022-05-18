@@ -1,0 +1,13 @@
+---
+- name: System fact 
+  hosts: testservers
+  gather_facts: yes
+
+
+  tasks:
+    - name: debug module
+      debug: 
+        msg:
+          - Node name is {{ ansible_facts['nodename'] }}
+
+        
