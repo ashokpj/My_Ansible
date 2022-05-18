@@ -9,7 +9,7 @@
         cmd: uptime
       register: uptime_var
 
-    - name: to check free memory
+    - name: to check free memory in server
       shell:
         cmd: free -m
       register: freemem_var
