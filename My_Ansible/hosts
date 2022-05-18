@@ -3,13 +3,6 @@
 130.175.85.15
 130.175.85.217
 
-[aws]
-10.165.190.149
-
-[aws:vars]
-ansible_user=pdxcboot
-ansible_pasword=pdxcboot@123
-
 [ubuntu]
 130.175.85.69 
 
